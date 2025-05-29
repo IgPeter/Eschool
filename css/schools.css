@@ -1,0 +1,63 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.school-card {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  width: 80%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.school-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+.teachers-container {
+  margin-top: 20px;
+}
+
+.teacher-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 20px;
+}
+
+.teacher-card {
+  background-color: #fff;
+  width: 180px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.teacher-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.teacher-card p {
+  margin-top: 5px;
+}
+
+p {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 550;
+  text-align: left;
+}
+
+.special-p {
+  text-align: center;
+}

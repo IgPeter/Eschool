@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltl">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="csrf-token"
+      content="m8JcMxxXjR50ciYSiit5HHLRuKfE77P9ufl89Wvs"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://eschool-saas.wrteam.me/assets/home_page/css/style.css"
+      rel="stylesheet"
+    />
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="https://eschool-saas.wrteam.me/assets/css/materialdesignicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://eschool-saas.wrteam.me/assets/css/vendor.bundle.base.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://eschool-saas.wrteam.me/assets/fonts/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://eschool-saas.wrteam.me/assets/select2/select2.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://eschool-saas.wrteam.me/assets/jquery-toast-plugin/jquery.toast.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://eschool-saas.wrteam.me/assets/color-picker/color.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://eschool-saas.wrteam.me/assets/css/style.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://eschool-saas.wrteam.me/assets/css/custom.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://eschool-saas.wrteam.me/assets/css/comman.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://eschool-saas.wrteam.me/assets/css/datepicker.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://eschool-saas.wrteam.me/assets/css/daterangepicker.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://eschool-saas.wrteam.me/assets/css/ekko-lightbox.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://eschool-saas.wrteam.me/assets/css/jquery.tagsinput.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://eschool-saas.wrteam.me/assets/bootstrap-table/fixed-columns.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://eschool-saas.wrteam.me/assets/bootstrap-table/reorder-rows.css"
+    />
+
+    <script
+      type="text/javascript"
+      async=""
+      charset="utf-8"
+      src="https://www.gstatic.com/recaptcha/releases/jt8Oh2-Ue1u7nEbJQUIdocyd/recaptcha__en.js"
+      crossorigin="anonymous"
+      integrity="sha384-UPrQVGoaAH4LSrUOE7fPg+sY6k0d8riR1MCeHMs2PytQcLpLR6pkOj7gsJu5KWvT"
+    ></script>
+
+    <script src="https://eschool-saas.wrteam.me/assets/js/vendor.bundle.base.js"></script>
+    <script src="https://eschool-saas.wrteam.me/assets/js/fullcalendar.js"></script>
+
+    <link rel="shortcut icon" href="#" />
+
+    <script src="https://eschool-saas.wrteam.me/js/lang"></script>
+
+    <style>
+      :root {
+        --theme-color: #22577a;
+      }
+    </style>
+
+    <script>
+      const baseUrl = "https://eschool-saas.wrteam.me";
+
+      // Function to handle image errors
+      function handleImageError(image) {
+        image.classList.contains("custom-default-image");
+        if (image.getAttribute("data-custom-image") != null) {
+          image.src = image.getAttribute("data-custom-image");
+        } else {
+          image.src =
+            "https://eschool-saas.wrteam.me/assets/no_image_available.jpg";
+        }
+      }
+
+      // Create a MutationObserver to watch for DOM changes
+      const observer = new MutationObserver((mutationsList) => {
+        mutationsList.forEach((mutation) => {
+          if (mutation.addedNodes) {
+            mutation.addedNodes.forEach((node) => {
+              // Check if the added node is an image element
+              if (node instanceof HTMLImageElement) {
+                node.addEventListener("error", () => {
+                  handleImageError(node);
+                });
+              }
+            });
+          }
+        });
+      });
+
+      // Start observing changes in the DOM
+      observer.observe(document, { childList: true, subtree: true });
+
+      const onErrorImage = (e) => {
+        e.target.src =
+          "https://eschool-saas.wrteam.me/assets/no_image_available.jpg";
+      };
+
+      const onErrorImageSidebarHorizontalLogo = (e) => {
+        e.target.src =
+          "https://eschool-saas.wrteam.me/assets/vertical-logo.svg";
+      };
+    </script>
+  </head>
+
+  <body>
+    <div class="container-scroller">
+      <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper login-d-flex align-items-center auth">
+          <div class="row flex-grow">
+            <div class="col-xl-6 mx-auto auth-form-light p-4 m-4">
+              <div class="rounded-lg text-left p-5">
+                <div class="brand-logo text-center">
+                  <img class="img-fluid w-25" src="#" alt="logo" />
+                </div>
+                <div class="mt-3"></div>
+                <form
+                  action="#"
+                  id="frmLogin"
+                  method="POST"
+                  class="pt-3"
+                  novalidate="novalidate"
+                >
+                  <input
+                    type="hidden"
+                    name="_token"
+                    value="m8JcMxxXjR50ciYSiit5HHLRuKfE77P9ufl89Wvs"
+                    autocomplete="off"
+                  />
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                      id="email"
+                      type="text"
+                      class="form-control rounded-lg form-control-lg"
+                      name="email"
+                      value=""
+                      required=""
+                      autocomplete="email"
+                      autofocus=""
+                      placeholder="Email Or Mobile No."
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-group">
+                      <input
+                        id="password"
+                        type="password"
+                        class="form-control rounded-lg form-control-lg"
+                        name="password"
+                        required=""
+                        value=""
+                        autocomplete="current-password"
+                        placeholder="Password"
+                      />
+                      <div
+                        class="input-group-append"
+                        cursor="pointer"
+                        id="togglePasswordShowHide"
+                      >
+                        <span class="input-group-text">
+                          <i class="fa fa-eye-slash" id="togglePassword"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="school_code">School Code</label>
+                    <input
+                      id="school_code"
+                      type="text"
+                      class="form-control rounded-lg form-control-lg"
+                      name="code"
+                      value=""
+                      autocomplete="school_code"
+                      autofocus=""
+                      placeholder="School Code"
+                    />
+                  </div>
+
+                  <div
+                    class="my-2 d-flex justify-content-end align-items-center"
+                  >
+                    <a class="auth-link text-blue" href="#">
+                      Forgot password?
+                    </a>
+                  </div>
+                  <div class="mt-3">
+                    <input
+                      type="submit"
+                      name="btnlogin"
+                      id="login_btn"
+                      value="Login"
+                      class="btn btn-block btn-theme btn-lg font-weight-medium auth-form-btn rounded-lg"
+                    />
+                  </div>
+                  <div
+                    class="my-2 d-flex justify-content-end align-items-center"
+                  >
+                    <a
+                      class="text-blue"
+                      href="#"
+                      data-bs-toggle="modal"
+                      data-bs-dismiss="offcanvas"
+                      data-bs-target="#staticBackdrop"
+                    >
+                      New user? Sign up to manage your school activities
+                      seamlessly!
+                    </a>
+                  </div>
+                </form>
+                <!-- Button trigger modal -->
+
+                <div
+                  class="modal fade formModal"
+                  id="staticBackdrop"
+                  data-bs-backdrop="static"
+                  data-bs-keyboard="false"
+                  tabindex="-1"
+                  aria-labelledby="staticBackdropLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content row">
+                      <div class="col-12 rightSide">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                            Registration Form
+                          </h1>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                        <div class="modal-body">
+                          <form
+                            class="school-registration"
+                            action="#"
+                            method="post"
+                          >
+                            <input
+                              type="hidden"
+                              name="_token"
+                              value="m8JcMxxXjR50ciYSiit5HHLRuKfE77P9ufl89Wvs"
+                              autocomplete="off"
+                            />
+                            <div class="schoolFormWrapper">
+                              <div class="headingWrapper">
+                                <span>Create School</span>
+                              </div>
+                              <div class="formWrapper">
+                                <div class="row">
+                                  <div class="col-lg-6">
+                                    <div class="inputWrapper">
+                                      <label for="name"
+                                        >Name
+                                        <span class="text-danger"
+                                          >*</span
+                                        ></label
+                                      >
+                                      <input
+                                        type="text"
+                                        name="school_name"
+                                        id="name"
+                                        placeholder="Enter Your School Name"
+                                        required=""
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-6">
+                                    <div class="inputWrapper">
+                                      <label for="supportEmail"
+                                        >Email
+                                        <span class="text-danger"
+                                          >*</span
+                                        ></label
+                                      >
+                                      <input
+                                        type="email"
+                                        name="school_email"
+                                        id="support-email"
+                                        placeholder="Enter Your School Email"
+                                        required=""
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-6">
+                                    <div class="inputWrapper">
+                                      <label for="supportPhone"
+                                        >Mobile
+                                        <span class="text-danger"
+                                          >*</span
+                                        ></label
+                                      >
+                                      <input
+                                        type="text"
+                                        oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+                                        name="school_phone"
+                                        id="supportPhone"
+                                        placeholder="Enter Your School Mobile Number"
+                                        maxlength="16"
+                                        required=""
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-6">
+                                    <div class="inputWrapper">
+                                      <label for="address"
+                                        >Address
+                                        <span class="text-danger"
+                                          >*</span
+                                        ></label
+                                      >
+                                      <input
+                                        type="text"
+                                        name="school_address"
+                                        id="address"
+                                        placeholder="Enter Your School Address"
+                                        required=""
+                                      />
+                                    </div>
+                                  </div>
+                                  <div class="col-12">
+                                    <div class="inputWrapper">
+                                      <label for="tagline"
+                                        >Tagline
+                                        <span class="text-danger"
+                                          >*</span
+                                        ></label
+                                      >
+                                      <input
+                                        type="text"
+                                        name="school_tagline"
+                                        id="tagline"
+                                        placeholder="Tagline"
+                                        required=""
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="adminFormWrapper schoolFormWrapper">
+                              <div class="formWrapper">
+                                <div class="col-lg-12">
+                                  <div
+                                    class="g-recaptcha mt-4"
+                                    data-sitekey="6LfqgEYqAAAAAEdANxcZCn6N6bBEAIE-f-EVPawC"
+                                  >
+                                    <div style="width: 304px; height: 78px">
+                                      <div>
+                                        <iframe
+                                          title="reCAPTCHA"
+                                          width="304"
+                                          height="78"
+                                          role="presentation"
+                                          name="a-g0bqfg7r9012"
+                                          frameborder="0"
+                                          scrolling="no"
+                                          sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
+                                          src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LfqgEYqAAAAAEdANxcZCn6N6bBEAIE-f-EVPawC&amp;co=aHR0cHM6Ly9lc2Nob29sLXNhYXMud3J0ZWFtLm1lOjQ0Mw..&amp;hl=en&amp;v=jt8Oh2-Ue1u7nEbJQUIdocyd&amp;size=normal&amp;cb=22g7rpy29vxr"
+                                        ></iframe>
+                                      </div>
+                                      <textarea
+                                        id="g-recaptcha-response"
+                                        name="g-recaptcha-response"
+                                        class="g-recaptcha-response"
+                                        style="
+                                          width: 250px;
+                                          height: 40px;
+                                          border: 1px solid rgb(193, 193, 193);
+                                          margin: 10px 25px;
+                                          padding: 0px;
+                                          resize: none;
+                                          display: none;
+                                        "
+                                      ></textarea>
+                                    </div>
+                                    <iframe style="display: none"></iframe>
+                                  </div>
+                                </div>
+
+                                <div class="col-12 modalfooter">
+                                  <div class="inputWrapper"></div>
+                                  <div>
+                                    <input
+                                      type="submit"
+                                      class="commonBtn"
+                                      value="Submit"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mt-3">
+                <hr style="width: -webkit-fill-available" />
+                <div class="col-12 text-center mb-4 text-black-50">
+                  Demo Credentials
+                </div>
+              </div>
+              <div class="col-12 text-center">Super Admin Panels</div>
+
+              <div class="row mt-3">
+                <div class="col-md-6">
+                  <button
+                    class="btn w-100 btn-success mt-2"
+                    id="superadmin_btn"
+                  >
+                    <a href="./dashboard.html"> Super Admin </a>
+                  </button>
+                </div>
+                <div class="col-md-6">
+                  <button
+                    class="btn w-100 btn-info mt-2"
+                    id="superadmin_staff_btn"
+                  >
+                    Staff
+                  </button>
+                </div>
+              </div>
+
+              <div class="col-12 text-center mt-3">
+                <hr class="w-100" />
+                School Admin Panels
+              </div>
+
+              <div class="row mt-3">
+                <div class="col-md-4">
+                  <button class="btn w-100 btn-info mt-2" id="schooladmin_btn">
+                    School Admin
+                  </button>
+                </div>
+                <div class="col-md-4">
+                  <button class="btn w-100 btn-danger mt-2" id="teacher_btn">
+                    Teacher
+                  </button>
+                </div>
+
+                <div class="col-md-4">
+                  <button
+                    class="btn w-100 btn-primary mt-2"
+                    id="schooladmin_staff_btn"
+                  >
+                    Staff
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+
+    <script src="https://eschool-saas.wrteam.me/assets/js/vendor.bundle.base.js"></script>
+    <script src="https://eschool-saas.wrteam.me/assets/js/jquery.validate.min.js"></script>
+    <script src="https://eschool-saas.wrteam.me/assets/jquery-toast-plugin/jquery.toast.min.js"></script>
+    <script src="https://eschool-saas.wrteam.me/assets/js/custom/common.js"></script>
+    <script src="https://eschool-saas.wrteam.me/assets/js/sweetalert2.all.min.js"></script>
+    <script src="https://eschool-saas.wrteam.me/assets/js/custom/function.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="text/javascript">
+      $("#frmLogin").validate({
+        rules: {
+          username: "required",
+          password: "required",
+        },
+        success: function (label, element) {
+          $(element).parent().removeClass("has-danger");
+          $(element).removeClass("form-control-danger");
+        },
+        errorPlacement: function (label, element) {
+          if (label.text()) {
+            if ($(element).attr("name") == "password") {
+              label.insertAfter(element.parent()).addClass("text-danger mt-2");
+            } else {
+              label.addClass("mt-2 text-danger");
+              label.insertAfter(element);
+            }
+          }
+        },
+        highlight: function (element, errorClass) {
+          $(element).parent().addClass("has-danger");
+          $(element).addClass("form-control-danger");
+        },
+      });
+
+      const togglePassword = document.querySelector("#togglePasswordShowHide");
+      const password = document.querySelector("#password");
+
+      togglePassword.addEventListener("click", function () {
+        const type =
+          password.getAttribute("type") === "password" ? "text" : "password";
+        password.setAttribute("type", type);
+        // this.classList.toggle("fa-eye");
+        if (password.getAttribute("type") === "password") {
+          $("#togglePassword").addClass("fa-eye-slash");
+          $("#togglePassword").removeClass("fa-eye");
+        } else {
+          $("#togglePassword").removeClass("fa-eye-slash");
+          $("#togglePassword").addClass("fa-eye");
+        }
+      });
+
+      // Super admin panel
+      $("#superadmin_btn").on("click", function (e) {
+        $("#email").val("superadmin@gmail.com");
+        $("#password").val("superadmin");
+        $("#login_btn").attr("disabled", true);
+        $(this).attr("disabled", true);
+        //$("#frmLogin").submit();
+      });
+
+      $("#superadmin_staff_btn").on("click", function (e) {
+        $("#email").val("mahesh@gmail.com");
+        $("#password").val("staff@123");
+        $("#login_btn").attr("disabled", true);
+        $(this).attr("disabled", true);
+        //$("#frmLogin").submit();
+      });
+
+      // School Panel
+      $("#schooladmin_btn").on("click", function (e) {
+        $("#email").val("school1@gmail.com");
+        $("#password").val("school@123");
+        $("#school_code").val("SCH202412");
+        $("#login_btn").attr("disabled", true);
+        $(this).attr("disabled", true);
+        //$("#frmLogin").submit();
+      });
+      $("#teacher_btn").on("click", function (e) {
+        $("#email").val("teacher@gmail.com");
+        $("#password").val("0111111111");
+        $("#school_code").val("SCH202412");
+        $("#login_btn").attr("disabled", true);
+        $(this).attr("disabled", true);
+        //$("#frmLogin").submit();
+      });
+
+      $("#schooladmin_staff_btn").on("click", function (e) {
+        $("#email").val("smitc@gmail.com");
+        $("#password").val("965555885");
+        $("#school_code").val("SCH202412");
+        $("#login_btn").attr("disabled", true);
+        $(this).attr("disabled", true);
+        //$("#frmLogin").submit();
+      });
+
+      const please_wait = "Please wait...";
+      const processing_your_request = "Processing your request";
+    </script>
+
+    <div
+      style="
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgb(204, 204, 204);
+        box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px;
+        position: absolute;
+        transition: visibility 0s linear 0.3s, opacity 0.3s linear;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 2000000000;
+        left: 0px;
+        top: -10000px;
+      "
+    >
+      <div
+        style="
+          width: 100%;
+          height: 100%;
+          position: fixed;
+          top: 0px;
+          left: 0px;
+          z-index: 2000000000;
+          background-color: rgb(255, 255, 255);
+          opacity: 0.05;
+        "
+      ></div>
+      <div
+        style="
+          border: 11px solid transparent;
+          width: 0px;
+          height: 0px;
+          position: absolute;
+          pointer-events: none;
+          margin-top: -11px;
+          z-index: 2000000000;
+        "
+        class="g-recaptcha-bubble-arrow"
+      ></div>
+      <div
+        style="
+          border: 10px solid transparent;
+          width: 0px;
+          height: 0px;
+          position: absolute;
+          pointer-events: none;
+          margin-top: -10px;
+          z-index: 2000000000;
+        "
+        class="g-recaptcha-bubble-arrow"
+      ></div>
+      <div style="z-index: 2000000000; position: relative">
+        <iframe
+          title="recaptcha challenge expires in two minutes"
+          style="width: 100%; height: 100%"
+          name="c-g0bqfg7r9012"
+          frameborder="0"
+          scrolling="no"
+          sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
+          src="https://www.google.com/recaptcha/api2/bframe?hl=en&amp;v=jt8Oh2-Ue1u7nEbJQUIdocyd&amp;k=6LfqgEYqAAAAAEdANxcZCn6N6bBEAIE-f-EVPawC"
+        ></iframe>
+      </div>
+    </div>
+  </body>
+</html>
