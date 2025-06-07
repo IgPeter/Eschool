@@ -16,7 +16,7 @@ function parseCSV(csvText) {
 const lgea = document.getElementById("LGEA");
 let dropdownOn = false;
 
-fetch("http://localhost:3000/public/schools.csv")
+fetch("https://usbeb-backend.onrender.com/public/schools.csv")
   .then((response) => response.text())
   .then((csv) => {
     const lgaToSchools = parseCSV(csv);
