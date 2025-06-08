@@ -22,9 +22,15 @@ fetch("https://usbeb-backend.onrender.com/public/schools.csv")
     const lgaToSchools = parseCSV(csv);
     const dropdown = document.getElementById("dropdown");
 
+    const lgaContainer = document.createElement("div");
+    lgaContainer.className = "lga-container";
+
     Object.keys(lgaToSchools)
       .sort()
       .forEach((lga) => {
+        const group = document.createElement("div");
+        group.className = "lga-group";
+
         const lgaDiv = document.createElement("div");
         lgaDiv.className = "lga";
         lgaDiv.textContent = lga;
@@ -40,21 +46,22 @@ fetch("https://usbeb-backend.onrender.com/public/schools.csv")
         });
 
         lgaDiv.addEventListener("click", () => {
-          schoolList.style.display =
-            schoolList.style.display === "block" ? "none" : "block";
+          const isShown = schoolList.style.display === "flex";
+          document
+            .querySelectorAll(".schools")
+            .forEach((el) => (el.style.display = "none"));
+          schoolList.style.display = isShown ? "none" : "flex";
         });
 
-        dropdown.appendChild(lgaDiv);
-        dropdown.appendChild(schoolList);
+        group.appendChild(lgaDiv);
+        group.appendChild(schoolList);
+        lgaContainer.appendChild(group);
       });
 
-    lgea.addEventListener("click", (event) => {
-      if (!dropdownOn) {
-        dropdownOn = true;
-        dropdown.style.display = "block";
-        return;
-      }
-      dropdown.style.display = "none";
-      dropdownOn = false;
+    dropdown.appendChild(lgaContainer);
+
+    lgea.addEventListener("click", () => {
+      dropdown.style.display = dropdownOn ? "none" : "block";
+      dropdownOn = !dropdownOn;
     });
   });
